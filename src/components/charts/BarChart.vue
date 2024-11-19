@@ -1,34 +1,40 @@
 <template>
-  <div>
-    <canvas ref="chartCanvas"></canvas>
+  <div style="width: 100%; height: 400px;">
+    <canvas ref="barChart"></canvas>
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import { Chart, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
+import { ref, onMounted } from "vue";
+import { Chart } from "chart.js";
 
-// Register chart.js components
-Chart.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+// Register necessary chart components including BarController, LinearScale, etc.
+import { BarController, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from "chart.js";
+Chart.register(BarController, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 export default {
-  name: 'BarChart',
+  name: "BarChartTest",
   setup() {
-    const chartCanvas = ref(null);
+    const barChart = ref(null);
 
     onMounted(() => {
-      if (chartCanvas.value) {
-        new Chart(chartCanvas.value, {
-          type: 'bar',
+      // Ensure the canvas element is available
+      if (barChart.value) {
+        // Get the 2D context of the canvas
+        const ctx = barChart.value.getContext("2d");
+
+        // Initialize the bar chart
+        new Chart(ctx, {
+          type: "bar",
           data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            labels: ["January", "February", "March", "April", "May"],
             datasets: [
               {
-                label: 'Orders',
-                data: [5, 8, 6, 10, 12, 7],
-                backgroundColor: '#007bff', // Blue color for bars
-                borderColor: '#0056b3', // Darker border for contrast
-                borderWidth: 1, // Add border width
+                label: "Sales",
+                data: [12, 19, 3, 5, 2],
+                backgroundColor: "#007bff",
+                borderColor: "#0056b3",
+                borderWidth: 1,
               },
             ],
           },
@@ -36,29 +42,25 @@ export default {
             responsive: true,
             plugins: {
               legend: {
-                position: 'top',
+                position: "top",
               },
             },
             scales: {
               x: {
-                title: {
-                  display: true,
-                  text: 'Months',
-                },
+                beginAtZero: true,
               },
               y: {
-                title: {
-                  display: true,
-                  text: 'Orders',
-                },
+                beginAtZero: true,
               },
             },
           },
         });
+      } else {
+        console.error("Canvas element not found.");
       }
     });
 
-    return { chartCanvas };
+    return { barChart };
   },
 };
 </script>
@@ -66,6 +68,6 @@ export default {
 <style scoped>
 canvas {
   max-width: 100%;
-  height: 400px;
+  height: 300px; /* Set height of the canvas */
 }
 </style>

@@ -36,4 +36,4 @@ npm run lint
 
 # Screenshoots
 
-![Screenshot of Dashboard](/screenshoot.png)
+![Screenshot of Dashboard](/Screenshot.png)

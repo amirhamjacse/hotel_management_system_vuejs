@@ -47,13 +47,13 @@
 </template>
 
 <script>
-// import PieChart from './charts/PieChart.vue';
-// import BarChart from './charts/BarChart.vue';
+import PieChart from './charts/PieChart.vue';
+import BarChart from './charts/BarChart.vue';
 
 export default {
   components: {
-    // PieChart,
-    // BarChart,
+    PieChart,
+    BarChart,
   },
   data() {
     return {
