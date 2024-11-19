@@ -33,3 +33,6 @@ npm run build
 ```sh
 npm run lint
 ```
+
+
+![Screenshot of Dashboard](/screenshoot.png)
