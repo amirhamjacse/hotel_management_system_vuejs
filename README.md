@@ -36,4 +36,9 @@ npm run lint
 
 # Screenshoots
 
-![Screenshot of Dashboard](/Screenshot.png)
+![Screenshot of Dashboard](/screenshoot/1.png)
+![Screenshot of Dashboard](/screenshoot/2.png)
+![Screenshot of Dashboard](/screenshoot/3.png)
+![Screenshot of Dashboard](/screenshoot/4.png)
+![Screenshot of Dashboard](/screenshoot/5.png)
+![Screenshot of Dashboard](/screenshoot/6.png)
